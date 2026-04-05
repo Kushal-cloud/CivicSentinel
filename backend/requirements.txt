@@ -1,0 +1,24 @@
+fastapi
+uvicorn[standard]
+SQLAlchemy>=2.0
+asyncpg
+pydantic-settings
+pydantic[email]
+python-jose[cryptography]
+passlib[bcrypt]
+bcrypt==3.2.2
+python-multipart
+requests
+Pillow
+numpy
+exifread
+imagehash
+APScheduler
+tenacity
+python-dateutil
+scikit-learn
+google-genai
+# Note: vision (YOLO) and NLP (transformers) dependencies are optional and live
+# in `requirements-ml.txt` so the API can run end-to-end with safe defaults.
+
+google-genai

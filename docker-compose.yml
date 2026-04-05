@@ -1,0 +1,60 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: civic
+      POSTGRES_USER: civic
+      POSTGRES_PASSWORD: civic
+    ports:
+      - "5432:5432"
+    volumes:
+      - civic_postgres_data:/var/lib/postgresql/data
+
+  backend:
+    build:
+      context: ./backend
+    environment:
+      APP_ENV: "local"
+      DATABASE_URL: "postgresql+asyncpg://civic:civic@postgres:5432/civic"
+      JWT_SECRET: "change_me_local"
+      ACCESS_TOKEN_EXPIRE_MINUTES: "1440"
+      STORAGE_DIR: "/data/uploads"
+      MAX_UPLOAD_BYTES: "8000000"
+      OSM_USER_AGENT: "CivicSentinel/1.0 (contact: example@example.com)"
+      ESCALATION_HOURS: "48"
+
+      # 🔥 FIXED SMTP (no crash now)
+      SMTP_HOST: "smtp.gmail.com"
+      SMTP_PORT: "587"
+      SMTP_USER: "test@gmail.com"
+      SMTP_PASS: "testpassword"
+
+      # AI Model key — reads from .env file at host
+      GEMINI_API_KEY: "${GEMINI_API_KEY}"
+
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+    volumes:
+      - civic_storage_data:/data/uploads
+      - ./backend/app:/app/app
+
+  frontend:
+    build:
+      context: ./frontend
+    environment:
+      # Leave VITE_API_BASE_URL empty so Vite proxy handles routing (no CORS)
+      # The proxy target uses the Docker-internal hostname for server-side forwarding
+      VITE_API_BASE_URL: ""
+      VITE_API_PROXY_TARGET: "http://backend:8000"
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+
+volumes:
+  civic_postgres_data:
+  civic_storage_data:

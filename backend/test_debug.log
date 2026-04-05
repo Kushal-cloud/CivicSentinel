@@ -1,0 +1,14 @@
+Reading image...
+Running pipeline...
+PIPELINE ERROR:
+Traceback (most recent call last):
+  File "/home/kush/Desktop/CIVICSENTINEL/backend/test_pipeline_debug.py", line 17, in test
+    out = await run_pipeline(
+          ^^^^^^^^^^^^^^^^^^^
+  File "/home/kush/Desktop/CIVICSENTINEL/backend/app/agents/pipeline.py", line 141, in run_pipeline
+    letter = generate_letter(
+             ^^^^^^^^^^^^^^^^
+  File "/home/kush/Desktop/CIVICSENTINEL/backend/app/agents/nlp_agent.py", line 303, in generate_letter
+    if settings.gemini_api_key:
+       ^^^^^^^^
+NameError: name 'settings' is not defined

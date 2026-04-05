@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CivicSentinel — AI Civic Intelligence</title>
+    <meta name="description" content="CivicSentinel: Report civic issues with AI-powered detection, multilingual complaint generation, and real-time tracking." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%237c3aed'/%3E%3Cpath d='M16 5 L27 10 L27 18 C27 24 22 28 16 30 C10 28 5 24 5 18 L5 10 Z' fill='%23fff' opacity='0.9'/%3E%3Ccircle cx='16' cy='17' r='4' fill='%237c3aed'/%3E%3C/svg%3E" />
+    <script>
+      (function() {
+        try {
+          var localTheme = localStorage.getItem('theme');
+          if (localTheme) {
+            document.documentElement.setAttribute('data-theme', localTheme);
+          } else {
+            document.documentElement.setAttribute('data-theme', 'light');
+            localStorage.setItem('theme', 'light');
+          }
+        } catch (e) {}
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
