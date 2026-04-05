@@ -6,7 +6,7 @@ pydantic-settings
 pydantic[email]
 python-jose[cryptography]
 passlib[bcrypt]
-bcrypt==3.2.2
+bcrypt==4.0.1
 python-multipart
 requests
 Pillow
@@ -20,5 +20,3 @@ scikit-learn
 google-genai
 # Note: vision (YOLO) and NLP (transformers) dependencies are optional and live
 # in `requirements-ml.txt` so the API can run end-to-end with safe defaults.
-
-google-genai

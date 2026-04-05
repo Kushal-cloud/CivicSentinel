@@ -1,0 +1,19 @@
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+.env
+*.egg-info/
+dist/
+build/
+.git/
+.gitignore
+
+# Test files
+test*.py
+test*.jpg
+test*.log
+add_cols.py
+uvicorn_test.log
